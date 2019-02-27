@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block bb %}
+<h1>To Do List</h1>
+    {% for todo in todos %}
+        <div class="jumbotron">
+          <h1 class="display-4">{{todo.title}}</h1>
+          <p class="lead">{{todo.deadline}}</p>
+          <a class="btn btn-primary btn-lg" href="/{{todo.id}}" role="button">글보기</a>
+          <a class="btn btn-danger btn-lg" href="/{{todo.id}}/delete" role="button">삭제</a>
+          <a class="btn btn-warning btn-lg" href="/{{todo.id}}/update" role="button">수정</a>
+        </div>
+    {% endfor %}
+    
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block bb %}
+    <div class="card" style="">
+      <img src="https://picsum.photos/200/100/?random" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">{{todo.title}}</h5>
+        <p class="card-text">{{todo.deadline}}</p>
+      </div>
+    </div>
+    <form action="/{{todo.id}}/comment" method="post">
+      <div class="form-group">
+        <label for="content">댓글</label>
+        <input type="text" class="form-control" id="content" name="content">
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    
+{% for comment in todo.comments %}
+  <h4>{{comment.content}}</h4>
+{% endfor %}
+
+{% endblock %}
